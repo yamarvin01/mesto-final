@@ -27,10 +27,10 @@ mongoose.connect(
   },
 );
 
+app.use(cors);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(requestLogger);
-app.use(cors);
 app.use('/', authRoutes);
 app.use(auth);
 app.use('/', userRoutes);
