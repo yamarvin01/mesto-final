@@ -12,6 +12,7 @@ const authRoutes = require('./src/routes/auth');
 const cardRoutes = require('./src/routes/cards');
 const userRoutes = require('./src/routes/users');
 const auth = require('./src/middlewares/auth');
+const cors = require('./src/middlewares/cors');
 
 const { requestLogger, errorLogger } = require('./src/middlewares/logger');
 
@@ -26,6 +27,7 @@ mongoose.connect(
   },
 );
 
+app.use(cors);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(requestLogger);
