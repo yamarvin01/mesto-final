@@ -11,12 +11,11 @@ const allowedCors = [
 ];
 
 const cors = (req, res, next) => {
-  // Сохраняем источник запроса в переменную origin
-  const { origin } = req.headers;
-  // проверяем, что источник запроса есть среди разрешённых
-  if (allowedCors.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', origin);
-  }
+  // const { origin } = req.headers;
+  // if (allowedCors.includes(origin)) {
+  //   res.header('Access-Control-Allow-Origin', '*');
+  // }
+  res.header('Access-Control-Allow-Origin', '*');
 
   // Сохраняем тип запроса (HTTP-метод) в соответствующую переменную
   const { method } = req;
