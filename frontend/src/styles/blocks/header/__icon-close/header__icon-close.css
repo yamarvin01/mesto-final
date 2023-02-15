@@ -1,0 +1,12 @@
+.header__icon-close {
+  width: 20px;
+  height: 20px;
+  padding-right: 30px;
+  opacity: 1;
+  transition: opacity 0.4s linear;
+}
+
+.header__icon-close:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}

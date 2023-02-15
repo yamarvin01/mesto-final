@@ -1,0 +1,10 @@
+.registerContainer {
+  min-height: 466px;
+  padding: 60px 0 200px;
+}
+
+@media screen and (max-width: 700px) {
+  .registerContainer {
+    padding: 40px 0 60px;
+  }
+}

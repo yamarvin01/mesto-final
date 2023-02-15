@@ -1,0 +1,11 @@
+.header__icon-group {
+  width: 24px;
+  height: 18px;
+  padding-right: 30px;
+  transition: opacity 0.4s linear;
+}
+
+.header__icon-group:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}

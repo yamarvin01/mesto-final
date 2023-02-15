@@ -1,0 +1,12 @@
+.button {
+  border: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(255, 255, 255, 0);
+  opacity: 1;
+  transition: opacity 0.4s linear;
+}
+
+.button:hover {
+  cursor: pointer;
+}
