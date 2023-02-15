@@ -5,7 +5,7 @@ const { ValidationError } = require('../errors/validationError');
 
 const getCards = (req, res, next) => {
   Card.find()
-    .then((cards) => res.send({ cards }))
+    .then((cards) => res.send(cards))
     .catch(next);
 };
 
@@ -13,7 +13,7 @@ const createCard = (req, res, next) => {
   const { name, link } = req.body;
   const owner = req.user._id;
   Card.create({ name, link, owner })
-    .then((card) => res.send({ card }))
+    .then((card) => res.send(card))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new ValidationError());
@@ -34,7 +34,7 @@ const deleteCardById = (req, res, next) => {
         throw new NoRightsError();
       }
       return card.remove()
-        .then(() => res.send({ message: 'Карточка удалена', card }));
+        .then(() => res.send(card));
     })
     .catch((err) => {
       if (err.name === 'CastError') {
@@ -52,7 +52,7 @@ const addCardLikeById = (req, res, next) => {
     .orFail(() => {
       throw new NotFoundError('Карта не найдена');
     })
-    .then((card) => res.send({ card }))
+    .then((card) => res.send(card))
     .catch((err) => {
       if (err.name === 'CastError') {
         next(new ValidationError());
@@ -69,7 +69,7 @@ const deleteCardLikeById = (req, res, next) => {
     .orFail(() => {
       throw new NotFoundError('Карта не найдена');
     })
-    .then((card) => res.send({ card }))
+    .then((card) => res.send(card))
     .catch((err) => {
       if (err.name === 'CastError') {
         next(new ValidationError());
