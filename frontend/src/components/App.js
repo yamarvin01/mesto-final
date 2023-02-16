@@ -78,11 +78,11 @@ export default function App() {
   function tokenCheck() {
     const token = localStorage.getItem('token');
     if (token) {
-      auth.getContent(token)
+      api.getUserInfo(token)
         .then((userData) => {
           setLoggedIn(true);
           setToken(token);
-          setCurrentUserEmail(userData.data.email);
+          setCurrentUserEmail(userData.email);
           if (history.location.pathname !== "/") {
             history.push("/");
           }
