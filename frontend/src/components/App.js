@@ -18,6 +18,7 @@ import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 import Register from "./Register/Register";
 
 export default function App() {
+  const [token, setToken] = React.useState('');
   const [currentUser, setCurrentUser] = React.useState({});
   const [currentUserEmail, setCurrentUserEmail] = React.useState('');
   const [cards, setCards] = React.useState([]);
@@ -37,7 +38,7 @@ export default function App() {
 
   React.useEffect(() => {
     if (loggedIn) {
-      Promise.all([api.getUserInfo(), api.getInitialCards()])
+      Promise.all([api.getUserInfo(token), api.getInitialCards(token)])
         .then(([userData, cardList]) => {
           setCurrentUser(userData);
           setCards(cardList);
@@ -80,6 +81,7 @@ export default function App() {
       auth.getContent(token)
         .then((userData) => {
           setLoggedIn(true);
+          setToken(token);
           setCurrentUserEmail(userData.data.email);
           if (history.location.pathname !== "/") {
             history.push("/");
@@ -93,7 +95,7 @@ export default function App() {
 
   function handleUpdateAvatar(newAvatar) {
     setIsLoading(true);
-    api.editProfileAvatar(newAvatar.avatar)
+    api.editProfileAvatar(newAvatar.avatar, token)
       .then((userData) => {
         setCurrentUser(userData);
         closeAllPopups();
@@ -108,7 +110,7 @@ export default function App() {
 
   function handleUpdateUser(newUserData) {
     setIsLoading(true);
-    api.editProfile(newUserData)
+    api.editProfile(newUserData, token)
       .then((userData) => {
         setCurrentUser(userData);
         closeAllPopups();
@@ -123,7 +125,7 @@ export default function App() {
 
   function handleCardLike(card) {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
-    api.changeLikeCardStatus(card._id, isLiked)
+    api.changeLikeCardStatus(card._id, isLiked, token)
       .then((newCard) => {
         setCards((state) =>
           state.map((c) => (c._id === card._id ? newCard : c))
@@ -142,7 +144,7 @@ export default function App() {
   function handleCardDeleteSubmit(evt) {
     evt.preventDefault();
     setIsLoading(true);
-    api.deleteCard(selectedCard._id)
+    api.deleteCard(selectedCard._id, token)
       .then(() => {
         setCards(state => state.filter(card => card._id !== selectedCard._id));
         closeAllPopups();
@@ -157,7 +159,7 @@ export default function App() {
 
   function handleAddPlaceSubmit(newCardData) {
     setIsLoading(true);
-    api.addNewCard(newCardData)
+    api.addNewCard(newCardData, token)
       .then((newCard) => {
         setCards([newCard, ...cards]);
         closeAllPopups();
@@ -217,6 +219,7 @@ export default function App() {
     auth.authorize(email, password)
       .then((data) => {
         localStorage.setItem("token", data.token);
+        setToken(data.token);
         setLoggedIn(true);
         setCurrentUserEmail(email);
         history.push('/');
