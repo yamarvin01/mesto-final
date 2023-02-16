@@ -103,10 +103,8 @@ class Api {
 }
 
 export const api = new Api({
-  // baseUrl: "https://mesto.nomoreparties.co/v1/cohort-49",
-  baseUrl: "http://yamarvin01.nomoredomains.club",
+  baseUrl: "http://api.yamarvin01.nomoredomainsclub.ru",
   headers: {
-    // authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2VjYjFhYTk1NTgxYTY5NDI2MDRlYzAiLCJpYXQiOjE2NzY1NTkyNzgsImV4cCI6MTY3NzE2NDA3OH0.P39FflbWatlN_4OxsIpc1sOWsSQtyeRPt_pu9Y6Ht3o",
     "Content-Type": "application/json",
   },
 });

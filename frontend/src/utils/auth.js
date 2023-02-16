@@ -1,5 +1,4 @@
-// const BASE_URL = "https://auth.nomoreparties.co";
-const BASE_URL = "http://yamarvin01.nomoredomains.club";
+const BASE_URL = "http://api.yamarvin01.nomoredomainsclub.ru";
 
 function checkResponse(response) {
   if (response.ok) {
