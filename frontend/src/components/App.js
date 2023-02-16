@@ -46,11 +46,7 @@ export default function App() {
         .catch((err) => {
           console.log(err);
         });
-      }
-  }, [loggedIn]);
-
-  React.useEffect(() => {
-    if (!loggedIn) {
+    } else {
       tokenCheck();
     }
   }, [loggedIn]);
