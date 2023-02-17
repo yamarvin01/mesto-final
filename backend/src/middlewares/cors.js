@@ -1,8 +1,9 @@
-// Массив доменов, с которых разрешены кросс-доменные запросы
 const allowedCors = [
   'http://localhost:3000',
   'http://yamarvin01.nomoredomains.club',
   'https://yamarvin01.nomoredomains.club',
+
+  // Эти хосты разрешать не обязательно
   'http://api.yamarvin01.nomoredomainsclub.ru',
   'https://api.yamarvin01.nomoredomainsclub.ru',
 ];
