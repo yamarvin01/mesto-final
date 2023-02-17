@@ -1,6 +1,8 @@
 const process = require('process');
 
 const { NODE_ENV, JWT_SECRET } = process.env;
+console.log(process.env.NODE_ENV);
+console.log(process.env.JWT_SECRET);
 
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
