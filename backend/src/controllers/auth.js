@@ -1,3 +1,5 @@
+const process = require('process');
+
 const { NODE_ENV, JWT_SECRET } = process.env;
 
 const jwt = require('jsonwebtoken');
