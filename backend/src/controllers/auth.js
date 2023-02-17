@@ -10,13 +10,12 @@ const signIn = (req, res, next) => {
   const { email, password } = req.body;
   return User.findUserByCredentials(email, password)
     .then((user) => {
-      if (NODE_ENV === 'production') {
-        const token = jwt.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
-        res.send({ token });
-      } else {
-        const token = jwt.sign({ _id: user._id }, 'some-secret-key', { expiresIn: '7d' });
-        res.send({ token });
-      }
+      const token = jwt.sign(
+        { _id: user._id },
+        NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-key',
+        { expiresIn: '7d' },
+      );
+      res.send({ token });
     })
     .catch(next);
 };
