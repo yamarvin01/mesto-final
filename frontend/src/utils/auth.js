@@ -1,4 +1,4 @@
-const BASE_URL = "api.yamarvin01.nomoredomainsclub.ru";
+const BASE_URL = "https://api.yamarvin01.nomoredomainsclub.ru";
 
 function checkResponse(response) {
   if (response.ok) {
