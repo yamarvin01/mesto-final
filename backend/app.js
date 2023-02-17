@@ -5,6 +5,9 @@ const process = require('process');
 const mongoose = require('mongoose');
 
 const { PORT = 3000 } = process.env;
+
+console.log('process.env.NODE_ENV: ', process.env.NODE_ENV);
+
 const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
 const { NotFoundError } = require('./src/errors/notFoundError');
