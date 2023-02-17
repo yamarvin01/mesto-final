@@ -1,5 +1,8 @@
 const allowedCors = [
+  // Предполагается вести разработку под защищенным VPN
   'http://localhost:3000',
+
+  // Здесь хост Access-Control-Allow-Origin
   'http://yamarvin01.nomoredomains.club',
   'https://yamarvin01.nomoredomains.club',
 
