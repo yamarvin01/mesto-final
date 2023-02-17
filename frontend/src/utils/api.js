@@ -102,5 +102,5 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl: "api.yamarvin01.nomoredomainsclub.ru",
+  baseUrl: "http://api.yamarvin01.nomoredomainsclub.ru",
 });
