@@ -2,7 +2,6 @@ class Api {
   constructor(options) {
     this._options = options;
     this._baseUrl = this._options.baseUrl;
-    this._headers = this._options.headers;
   }
 
   _checkResponse(response) {
@@ -104,7 +103,4 @@ class Api {
 
 export const api = new Api({
   baseUrl: "https://api.yamarvin01.nomoredomainsclub.ru",
-  headers: {
-    "Content-Type": "application/json",
-  },
 });
