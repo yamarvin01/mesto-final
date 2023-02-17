@@ -7,8 +7,8 @@ const allowedCors = [
   'https://yamarvin01.nomoredomains.club',
 
   // Эти хосты разрешать не обязательно
-  'http://api.yamarvin01.nomoredomainsclub.ru',
-  'https://api.yamarvin01.nomoredomainsclub.ru',
+  // 'http://api.yamarvin01.nomoredomainsclub.ru',
+  // 'https://api.yamarvin01.nomoredomainsclub.ru',
 ];
 
 function cors(req, res, next) {
