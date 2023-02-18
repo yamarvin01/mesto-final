@@ -28,7 +28,6 @@ function cors(req, res, next) {
   const requestHeaders = req.headers['access-control-request-headers'];
   if (method === 'OPTIONS') {
     res.header('Access-Control-Allow-Headers', requestHeaders);
-    return res.end();
   }
 
   next();
