@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const ERROR_CODE_DEFAULT = 500;
 
 const handleErrors = (err, req, res, next) => {
