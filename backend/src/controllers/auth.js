@@ -26,27 +26,15 @@ const signIn = (req, res, next) => {
 
 const signUp = (req, res, next) => {
   const {
-    name,
-    about,
-    avatar,
-    email,
-    password,
+    name, about, avatar, email, password,
   } = req.body;
   bcrypt
     .hash(password, 10)
     .then((hash) => User.create({
-      name,
-      about,
-      avatar,
-      email,
-      password: hash,
+      name, about, avatar, email, password: hash,
     }))
     .then(() => {
-      res.send({
-        name,
-        about,
-        avatar,
-        email,
+      res.send({ name, about, avatar, email,
       });
     })
     .catch((err) => {
